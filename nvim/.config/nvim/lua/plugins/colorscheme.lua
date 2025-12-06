@@ -1,10 +1,18 @@
 -- lazy
 return {
     {
+        "Mofiqul/vscode.nvim",
+        priority = 110,
+        config = function ()
+            vim.cmd([[colorscheme vscode]])
+        end
+    },
+
+    {
         "askfiy/visual_studio_code",
         priority = 100,
         config = function()
-            vim.cmd([[colorscheme visual_studio_code]])
+            -- vim.cmd([[colorscheme visual_studio_code]])
         end,
     },
 
