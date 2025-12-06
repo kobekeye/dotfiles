@@ -1,0 +1,28 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CaskaydiaMono Nerd Font", Roboto, Helvetica, Arial, sans-serif; /* 推薦安裝 Nerd Font */
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent; /* 背景透明，讓 bar 看起來像浮在空中 */
+    color: #ffffff;
+}
+
+#workspaces {
+    background: #1e1e2e; /* 深色背景 */
+    margin: 5px;
+    padding: 0 5px;
+    border-radius: 15px; /* 圓角 */
+}
+
+#clock, #battery, #cpu, #memory {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    margin: 5px 2px;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
