@@ -4,7 +4,10 @@ return {
         "Mofiqul/vscode.nvim",
         priority = 110,
         config = function ()
-            vim.cmd([[colorscheme vscode]])
+            -- vim.cmd([[colorscheme vscode]])
+            -- require('vscode').setup({
+            --     terminal_colors = false,
+            -- })
         end
     },
 
@@ -20,7 +23,7 @@ return {
         "folke/tokyonight.nvim",
         priority = 70,
         config = function()
-            -- vim.cmd([[colorscheme tokyonight]])
+            vim.cmd([[colorscheme tokyonight]])
         end,
     },
 

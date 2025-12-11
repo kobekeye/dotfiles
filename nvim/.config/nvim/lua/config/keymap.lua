@@ -1,4 +1,5 @@
-print("hihihihihihi")
+-- print("hihihihihihi")
+
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

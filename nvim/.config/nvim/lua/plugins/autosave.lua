@@ -11,7 +11,7 @@ return {
           return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
         end,
         dim = 0.18, -- 訊息顏色的亮度
-        cleaning_interval = 1250, -- 訊息自動清除的時間
+        cleaning_interval = 500, -- 訊息自動清除的時間
       },
       trigger_events = { "InsertLeave", "TextChanged" }, -- 觸發儲存的事件
       -- 決定是否要儲存的條件函式
@@ -19,7 +19,7 @@ return {
         local fn = vim.fn
         local utils = require("auto-save.utils.data")
 
-        -- 檢查緩衝區是否可修改，且檔案類型不是在排除列表中
+        -- 檢查緩衝區是否可 修改，且檔案類型不是在排除列表中
         if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
           return true -- 符合條件，可以儲存
         end
