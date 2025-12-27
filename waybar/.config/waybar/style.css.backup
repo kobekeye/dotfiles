@@ -67,7 +67,7 @@ button:hover {
 #workspaces button {
     padding: 0 10px;
     background-color: transparent;
-    color: rgba(250, 248, 245, 0.9);
+    color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -75,10 +75,11 @@ button:hover {
     box-shadow: none; /* 移除原本的底部陰影 */
 }
 
-#workspaces button.active {
-    background-color: transparent;
-    color: #e09e58;;
-    min-width: 30px; /* 被選中時稍微變寬，增加動態感 */
+#workspaces button.focused {
+    background-color: #89b4fa; /* 柔和的藍色 */
+    color: #1e1e2e;
+    box-shadow: none;
+    min-width: 50px; /* 被選中時稍微變寬，增加動態感 */
 }
 
 #workspaces button.urgent {
@@ -105,52 +106,17 @@ button:hover {
 #tray,
 #mode,
 #idle_inhibitor,
-#mpd,
-#language,
-#power-profiles-daemon {
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
     padding: 0 15px;
-    margin: 5px 4px;
-    border-radius: 12px;
-
-    /* 帶一點點暖色調的亮白 */
-    background-color: rgba(250, 248, 245, 0.9);
-    
-    /* 深咖啡色文字，對比強烈且溫暖 */
-    color: #705c53; 
-    
-    border: none;
-    /* 底部加一條細細的橘色線條呼應小船 */
-    /* border-bottom: 3px solid #e09e58;  */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
-    font-weight: bold;
-    transition: all 0.3s ease;
-}/* 滑鼠懸停時變亮 */
-#clock:hover,
-#battery:hover,
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#temperature:hover,
-#backlight:hover,
-#network:hover,
-#bluetooth:hover,
-#pulseaudio:hover,
-#wireplumber:hover,
-#custom-media:hover,
-#tray:hover,
-#mode:hover,
-#idle_inhibitor:hover,
-#mpd:hover,
-#language:hover,
-#power-profiles-daemon:hover {
-    background-color: #ffffff;
-    color: #d35400; /* 懸停時變成亮橘色 */
-border-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 5px 3px;
+    /* color: #1e1e2e; */
+    border-radius: 15px;
+    background-color: #fab387;
+    color: #ffffff;
 }
+
 /* button { */
 /*     border: none; */
 /*     border-radius: 0; */
@@ -173,20 +139,20 @@ border-color: #ffffff;
 }
 
 #clock {
-    /* background-color: #cba6f7; */
-    /* color: #1e1e2e; */
-    margin-right: 10px; 
+    background-color: #cba6f7; /* 淡紫色 */
+    color: #1e1e2e;
+    margin-right: 10px; /* 時鐘通常在最右邊，留點空隙 */
 }
 
-/* #battery { */
-/*     background-color: #a6e3a1;  */
-/*     color: #1e1e2e; */
-/* } */
+#battery {
+    background-color: #a6e3a1; /* 淡綠色 */
+    color: #1e1e2e;
+}
 
-/* #battery.charging, #battery.plugged { */
-/*     background-color: #94e2d5; */
-/*     color: #1e1e2e; */
-/* } */
+#battery.charging, #battery.plugged {
+    background-color: #94e2d5;
+    color: #1e1e2e;
+}
 
 @keyframes blink {
     to {
@@ -206,38 +172,38 @@ border-color: #ffffff;
     animation-direction: alternate;
 }
 
-/* #power-profiles-daemon { */
-/*     padding-right: 15px; */
-/* } */
-/**/
-/* #power-profiles-daemon.performance { */
-/*     background-color: #f53c3c; */
-/*     color: #ffffff; */
-/* } */
+#power-profiles-daemon {
+    padding-right: 15px;
+}
 
-/* #power-profiles-daemon.balanced { */
-/*     background-color: #2980b9; */
-/*     color: #ffffff; */
-/* } */
-/**/
-/* #power-profiles-daemon.power-saver { */
-/*     background-color: #2ecc71; */
-/*     color: #000000; */
-/* } */
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
 
 label:focus {
     background-color: #000000;
 }
 
-/* #cpu { */
-/*     background-color: #89b4fa;  */
-/*     color: #1e1e2e; */
-/* } */
+#cpu {
+    background-color: #89b4fa; /* 淡藍色 */
+    color: #1e1e2e;
+}
 
-/* #memory { */
-    /* background-color: #fab387;  */
-/*     color: #1e1e2e; */
-/* } */
+#memory {
+    background-color: #fab387; /* 淡橘色 */
+    color: #1e1e2e;
+}
 
 #disk {
     background-color: #964B00;
@@ -247,34 +213,34 @@ label:focus {
     background-color: #90b1b1;
 }
 
-/* #network { */
-/*     background-color: #89dceb; */
-/*     color: #1e1e2e; */
-/* } */
+#network {
+    background-color: #89dceb; /* 天空藍 */
+    color: #1e1e2e;
+}
 
-/* #bluetooth{ */
-/*     background-color: #b4befe; */
-/*     color: #1e1e2e; */
-/* } */
+#bluetooth{
+    background-color: #b4befe; /* 亮淡藍紫 (Lavender Blue)，表示活躍中 */
+    color: #1e1e2e;
+}
 
-/* #bluetooth.disabled { */
-/*     background-color: #45475a; */
-/*     color: #bac2de;  */
-/* } */
+#bluetooth.disabled {
+    background-color: #45475a; /* 深灰色背景 */
+    color: #bac2de; /* 淺灰藍文字 */
+}
 
-/* #network.disconnected { */
-/*     background-color: #f53c3c; */
-/* } */
+#network.disconnected {
+    background-color: #f53c3c;
+}
 
-/* #pulseaudio { */
-/*     background-color: #f5c2e7;  */
-/*     color: #1e1e2e; */
-/* } */
-/**/
-/* #pulseaudio.muted { */
-/*     background-color: #90b1b1; */
-/*     color: #2a5c45; */
-/* } */
+#pulseaudio {
+    background-color: #f5c2e7; /* 粉紅色 */
+    color: #1e1e2e;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
 
 #wireplumber {
     background-color: #fff0f5;
