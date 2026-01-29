@@ -8,6 +8,18 @@ return {
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
+      vim.diagnostic.config({
+        virtual_text = { -- 只顯示 Warning (警告) 以上的訊息 (包含 Error)
+          -- 這會自動過濾掉 Hint (綠色) 和 Info (藍色/淡藍色)
+          severity = { min = vim.diagnostic.severity.WARN },
+        },
+        signs = {
+          severity = { min = vim.diagnostic.severity.WARN },
+        },         -- 左側顯示圖標 (E, W, H)
+        underline = true,     -- 錯誤下方底線
+        update_in_insert = false, -- 輸入時不更新，避免閃爍
+        severity_sort = true, -- 嚴重的錯誤排在前面
+      })
       local on_attach = function(client, bufnr)
         -- 您可以在這裡設定 LSP 相關的快捷鍵
         -- 例如：vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
@@ -63,7 +75,18 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       -- 確保這些 LSP Server 會被自動安裝
-      ensure_installed = { "clangd", "pyright", "lua_ls" },
+      ensure_installed = {
+        "clangd",
+        "pyright",
+        "lua_ls",
+        "gopls",
+        "rust_analyzer",
+        "bashls",
+        "html",
+        "cssls",
+        "ts_ls",
+        "jsonls",
+      },
     },
   },
 
@@ -126,4 +149,31 @@ return {
     event = "InsertEnter",
     opts = {}
   },
+
+{
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {}, -- 使用預設設定
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+    },
+},
+
+{
+  "folke/lazydev.nvim",
+  ft = "lua", -- 只有打開 lua 檔案時才載入，節省資源
+  opts = {
+    library = {
+      -- 讓 lazydev 也支援 lazy.nvim 的全域設定補全
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  },
+},
 }
+
+ 

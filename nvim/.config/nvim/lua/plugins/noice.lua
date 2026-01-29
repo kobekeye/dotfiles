@@ -22,6 +22,9 @@ return {
       "rcarriga/nvim-notify",
       opts = {
         background_colour = "#000000", -- 在這裡指定顏色 (黑色)
+        timeout = 2000,
+        render = "compact",
+        stages = "static",
       },
     },
   },

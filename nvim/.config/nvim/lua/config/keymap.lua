@@ -11,6 +11,7 @@ local opts = { noremap = true, silent = true }
 keymap('v', '>', '>gv', { desc = "Indent and re-select", unpack(opts) })
 keymap('v', '<', '<gv', { desc = "Un-indent and re-select", unpack(opts) })
 
+
 -- 使用 Ctrl + HJKL 進行視窗導航（Normal Mode）
 keymap('n', '<C-h>', '<C-w>h', { desc = '[Ctrl+H] Move Left', unpack(opts) })
 keymap('n', '<C-j>', '<C-w>j', { desc = '[Ctrl+J] Move Down', unpack(opts) })
@@ -23,5 +24,9 @@ keymap('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = '[Ctrl+J] Term Move Down', un
 keymap('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = '[Ctrl+K] Term Move Up', unpack(opts) })
 keymap('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = '[Ctrl+L] Term Move Right', unpack(opts) })
 
+-- 當按下 <Space> + x 時，執行該檔案
+vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
+vim.api.nvim_create_user_command('Me', 'messages', {})
 return {}
+
 
