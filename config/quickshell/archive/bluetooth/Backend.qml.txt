@@ -1,0 +1,19 @@
+// import QtQuick
+// import Quickshell.Bluetooth
+//
+// QtObject {
+//     id: root
+//
+//     readonly property var adapter: Bluetooth.defaultAdapter
+//
+//     function togglePower() {
+//         if (adapter)
+//             adapter.enabled = !adapter.enabled
+//     }
+//     function scan() {
+//         if (!adapter || !adapter.enabled)
+//             return
+//
+//         adapter.discovering = !adapter.discovering
+//     }
+// }

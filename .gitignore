@@ -1,1 +1,4 @@
-gemini/.gemini/oauth_creds.json
+*.md
+*.log
+/config/hypr/plugins/split-monitor-workspaces/
+!README.md

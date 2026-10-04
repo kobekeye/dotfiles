@@ -1,0 +1,293 @@
+/*
+ * Lago di Braies — a quiet, translucent launcher for the lake wallpaper.
+ * The dark teal glass keeps text legible over both bright water and pale rock;
+ * warm limestone is reserved for the active item.
+ */
+// configuration {
+//     modi: "drun";
+//     show-icons: true;
+//     disable-history: false;
+//     display-drun: "";
+//     display-run: "Run";
+//     display-window: "Windows";
+//     drun-display-format: "{name}";
+//     font: "Sans 12";
+//     icon-theme: "Papirus-Dark";
+//     matching: "fuzzy";
+//     sort: true;
+//     sorting-method: "fzf-v2";
+//     drun-match-fields: "all";
+//     cycle: false;
+//     // sidebar-mode: false;
+//     // case-sensitive: false;
+// }
+// * {
+//     /* alpine palette */
+//     lake-deep:        rgba ( 8,  35,  38, 91 % );
+//     lake-panel:       rgba ( 13,  54,  57, 94 % );
+//     lake-soft:        rgba ( 72, 174, 170, 24 % );
+//     water:            #70d2c6;
+//     water-bright:     #a7eee0;
+//     limestone:        #d8b98f;
+//     limestone-muted:  #c9ae8d;
+//     forest:           #1f4b42;
+//     ink:              #f7f4ed;
+//     ink-muted:        #c8d6d1;
+//     ink-placeholder:  rgba ( 200, 214, 209, 35 % );
+//     shadow:           rgba ( 1, 11, 13, 48 % );
+//     background-color: transparent;
+//     text-color: @ink;
+// }
+// window {
+//     width: 42%;
+//     location: center;
+//     anchor: center;
+//     transparency: "real";
+//     background-color: @lake-deep;
+//     border: 1px;
+//     border-color: rgba ( 167, 238, 224, 30 % );
+//     border-radius: 24px;
+//     padding: 14px;
+// }
+// mainbox {
+//     spacing: 12px;
+//     children: [ "inputbar", "listview" ];
+// }
+// inputbar {
+//     background-color: @lake-soft;
+//     border: 1px;
+//     border-color: rgba ( 167, 238, 224, 22 % );
+//     border-radius: 15px;
+//     padding: 12px 15px;
+//     spacing: 10px;
+//     children: [ "prompt", "entry" ];
+// }
+// prompt {
+//     text-color: @water-bright;
+//     background-color: transparent;
+// }
+// entry {
+//     text-color: @ink;
+//     placeholder: "Search";
+//     placeholder-color: @ink-placeholder;
+//     background-color: transparent;
+//     cursor: text;
+// }
+// listview {
+//     background-color: transparent;
+//     columns: 1;
+//     lines: 7;
+//     fixed-height: true;
+//     spacing: 5px;
+//     scrollbar: true;
+//     padding: 1px;
+// }
+// element {
+//     background-color: transparent;
+//     border-radius: 14px;
+//     padding: 10px 12px;
+//     spacing: 12px;
+//     text-color: @ink-muted;
+// }
+// // element normal.normal {
+// //     background-color: transparent;
+// //     text-color: @ink-muted;
+// // }
+// // element selected.normal {
+// //     background-color: @limestone;
+// //     text-color: @forest;
+// // }
+//
+// // element alternate.normal {
+// //     background-color: rgba ( 255, 255, 255, 3 % );
+// //     text-color: @ink-muted;
+// // }
+// element-icon {
+//     background-color: transparent;
+//     size: 1.35em;
+//     vertical-align: 0.5;
+// }
+// element-text {
+//     background-color: transparent;
+//     text-color: inherit;
+//     vertical-align: 0.5;
+// }
+// // element selected.normal element-icon,
+// // element selected.normal element-text {
+// //     text-color: @forest;
+// // }
+// element normal.normal {
+//     background-color: transparent;
+//     text-color: @ink-muted;
+// }
+//
+// element alternate.normal {
+//     background-color: transparent;
+//     text-color: @ink-muted;
+// }
+//
+// element selected.normal {
+//     background-color: rgba ( 31, 75, 66, 96 % );
+//     border: 1px;
+//     border-color: rgba ( 216, 185, 143, 35 % );
+//     text-color: #f7f4ed;
+// }
+//
+// element selected.normal element-icon {
+//     text-color: #f7f4ed;
+// }
+//
+// element selected.normal element-text {
+//     text-color: #f7f4ed;
+//     font: "Sans Bold 12";
+// }
+
+
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+    drun-display-format: "{name}";
+    disable-history: false;
+    click-to-exit: true;
+    scroll-method: 1;
+    cycle: false;
+hover-select: false;
+me-select-entry: "MousePrimary";
+me-accept-entry: "!MousePrimary";
+}
+
+* {
+    font: "Geist Regular 12";
+
+    /* warm neutral palette */
+    bg:              rgba(33, 31, 29, 0.88);
+    bg-soft:         rgba(255, 255, 255, 0.06);
+    bg-hover:        rgba(255, 255, 255, 0.08);
+    // bg:             #211f1dd6;
+    // bg-soft:        #ffffff0f;
+    // bg-hover:       #ffffff14;
+
+    fg:             #eee9e2ff;
+    fg-muted:       #aaa49cff;
+
+    border:         #f2e8da24;
+    selected-bg:    #eadbc516;
+    selected-border:#f0dfc62b;
+    selected-fg:    #f7f2ebff;
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 40%;
+    location: center;
+    anchor: center;
+
+    padding: 12px;
+
+    background-color: @bg;
+
+    border: 1px;
+    border-color: @border;
+    border-radius: 18px;
+}
+
+mainbox {
+    spacing: 10px;
+    background-color: transparent;
+}
+
+/* Search bar */
+inputbar {
+    padding: 10px 13px;
+    spacing: 8px;
+
+    background-color: @bg-soft;
+
+    border: 1px;
+    border-color: #ffffff0d;
+    border-radius: 12px;
+
+    children: [ prompt, entry ];
+}
+
+prompt {
+    enabled: true;
+    text-color: @fg-muted;
+    background-color: transparent;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @fg-muted;
+
+    text-color: @fg;
+    background-color: transparent;
+}
+
+/* Results */
+listview {
+    lines: 7;
+    columns: 1;
+
+    spacing: 3px;
+    padding: 0px;
+    border: 0px;
+
+    fixed-height: true;
+    scrollbar: false;
+
+    background-color: transparent;
+}
+
+element {
+    padding: 9px 11px;
+    spacing: 10px;
+
+    border: 1px;
+    border-color: transparent;
+    border-radius: 11px;
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+
+    border: 1px;
+    border-color: @selected-border;
+}
+// element-text selected.normal {
+//     text-transform: strikethrough;
+// }
+// element-text {
+//     font: inherit;
+// }
+
+element-icon {
+    size: 26px;
+    margin: 0px 3px 0px 0px;
+
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}

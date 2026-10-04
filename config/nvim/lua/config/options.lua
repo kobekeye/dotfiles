@@ -1,0 +1,9 @@
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.splitright = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.breakindent = true
+vim.opt.undofile = true
+vim.opt.winbar = " "
+-- vim.opt.showtabline = 2
+-- vim.opt.tabline = " "

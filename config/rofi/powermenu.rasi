@@ -1,0 +1,213 @@
+/* ==========================================================
+ * Rofi Power Menu
+ * Slate / Warm Ivory / Minimal Glass
+ * ========================================================== */
+
+configuration {
+    show-icons: false;
+    hover-select: true;
+
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+
+/* ----------------------------------------------------------
+ * Palette
+ * ---------------------------------------------------------- */
+
+* {
+    font: "JetBrainsMono Nerd Font 13";
+
+    /* Main panel — close to Waybar's blue/slate tone */
+    background:         #292E38E8;
+
+    /* Individual buttons */
+    background-alt:     #323844E6;
+
+    /* Text */
+    foreground:         #E9E7E1FF;
+    foreground-muted:   #B8B7B2FF;
+
+    /*
+     * Warm ivory / greige
+     * Matches the light pills on Waybar
+     */
+    accent:             #D9D6CEFF;
+    accent-hover:       #E3E0D8FF;
+    accent-foreground:  #292D35FF;
+
+    /* Very subtle borders */
+    border-color:       #FFFFFF16;
+    button-border:      #FFFFFF0D;
+
+    /*
+     * Don't darken the wallpaper too aggressively.
+     * Let the lake / mountains remain visible.
+     */
+    dim-background:     #00000038;
+
+    transparent:        #00000000;
+}
+
+
+/* ----------------------------------------------------------
+ * Fullscreen dim layer
+ * ---------------------------------------------------------- */
+
+window {
+    fullscreen: true;
+
+    transparency: "real";
+
+    background-color: @dim-background;
+
+    border: 0px;
+    padding: 0px;
+
+    children: [ vertical-center ];
+}
+
+
+/* ----------------------------------------------------------
+ * Vertical centering
+ * ---------------------------------------------------------- */
+
+vertical-center {
+    orientation: vertical;
+
+    background-color: @transparent;
+
+    children: [
+        dummy-top,
+        horizontal-center,
+        dummy-bottom
+    ];
+}
+
+dummy-top,
+dummy-bottom {
+    expand: true;
+    background-color: @transparent;
+}
+
+
+/* ----------------------------------------------------------
+ * Horizontal centering
+ * ---------------------------------------------------------- */
+
+horizontal-center {
+    expand: false;
+
+    orientation: horizontal;
+
+    background-color: @transparent;
+
+    children: [
+        dummy-left,
+        powerbox,
+        dummy-right
+    ];
+}
+
+dummy-left,
+dummy-right {
+    expand: true;
+    background-color: @transparent;
+}
+
+
+/* ----------------------------------------------------------
+ * Actual Power Menu Panel
+ * ---------------------------------------------------------- */
+
+powerbox {
+    expand: false;
+
+    /*
+     * Original: 420px
+     * Slightly tighter because there are only two actions.
+     */
+    width: 380px;
+
+    orientation: vertical;
+
+    background-color: @background;
+
+    border: 1px;
+    border-color: @border-color;
+    border-radius: 16px;
+
+    padding: 11px;
+
+    children: [ listview ];
+}
+
+
+/* ----------------------------------------------------------
+ * Power options
+ * ---------------------------------------------------------- */
+
+listview {
+    expand: false;
+
+    background-color: @transparent;
+
+    columns: 2;
+    lines: 1;
+
+    spacing: 8px;
+
+    fixed-columns: true;
+    fixed-height: true;
+
+    scrollbar: false;
+}
+
+
+/* ----------------------------------------------------------
+ * Buttons
+ * ---------------------------------------------------------- */
+
+element {
+    background-color: @background-alt;
+    text-color: @foreground;
+
+    border: 1px;
+    border-color: @button-border;
+    border-radius: 11px;
+
+    padding: 16px 14px;
+
+    cursor: pointer;
+}
+
+
+/* ----------------------------------------------------------
+ * Selected / Hover
+ * ---------------------------------------------------------- */
+
+element selected.normal,
+element selected.active,
+element selected.urgent {
+    background-color: @accent;
+    text-color: @accent-foreground;
+
+    border: 1px;
+    border-color: @accent-hover;
+}
+
+
+/* ----------------------------------------------------------
+ * Button text
+ * ---------------------------------------------------------- */
+
+element-text {
+    background-color: @transparent;
+    text-color: inherit;
+
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    font: "JetBrainsMono Nerd Font 13";
+}

@@ -1,0 +1,22 @@
+//@ pragma IconTheme elementary
+import Quickshell
+import Quickshell.Io
+ShellRoot {
+    Backend {
+        id: backend
+    }
+
+    Panel {
+        id: panel
+        bluetooth: backend
+        visible: false
+    }
+
+    IpcHandler {
+        target: "bluetooth"
+
+        function togglePanel() {
+            panel.visible = !panel.visible
+        }
+    }
+}

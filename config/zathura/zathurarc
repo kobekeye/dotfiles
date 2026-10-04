@@ -1,0 +1,8 @@
+set selection-clipboard clipboard
+set selection-notification false
+set guioptions shv
+# include solarized-light
+# include catppuccin-latte
+# include catppuccin-frappe
+# include catppuccin-mocha
+# include catppuccin-macchiato

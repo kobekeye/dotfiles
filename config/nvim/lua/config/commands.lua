@@ -1,0 +1,1 @@
+vim.cmd.cnoreabbrev("qq", "confirm qa")

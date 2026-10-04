@@ -1,0 +1,5 @@
+[package]
+name = "cal"
+version = "0.1.0"
+entrypoint = "lib.typ"
+

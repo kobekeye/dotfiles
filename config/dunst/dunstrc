@@ -1,0 +1,26 @@
+[global]
+frame_color = "#89b4fa"
+separator_color= frame
+highlight = "#89b4fa"
+follow = mouse
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+
+[battery-warning]
+appname = battery-warning
+urgency = critical
+background = "#b00020"
+foreground = "#ffffff"
+frame_color = "#ff4d4d"
+timeout = 0
